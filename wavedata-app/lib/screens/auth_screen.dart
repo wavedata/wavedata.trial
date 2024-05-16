@@ -5,10 +5,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:myowndata/components/data_edit_item.dart';
-import 'package:myowndata/components/register_modal.dart';
-import 'package:myowndata/screens/get_ready.dart';
-import 'package:myowndata/screens/main_screen.dart';
+import 'package:wavedata/components/data_edit_item.dart';
+import 'package:wavedata/components/register_modal.dart';
+import 'package:wavedata/screens/get_ready.dart';
+import 'package:wavedata/screens/main_screen.dart';
 
 class AuthScreen extends StatefulWidget {
   @override
@@ -45,7 +45,7 @@ class AuthScreenApp extends State<AuthScreen> {
 
   Future<void> LoginAccount() async {
     var url =
-        Uri.parse('https://myowndata-tron-s5-api.netlify.app/api/POST/Login');
+        Uri.parse('https://wavedatatrial-api.netlify.app/api/POST/Login');
     final response = await http.post(url,
         headers: POSTheader,
         body: {'email': emailTXT.text, 'password': passwordTXT.text});
@@ -116,15 +116,15 @@ class AuthScreenApp extends State<AuthScreen> {
                         ),
                       ),
                       Column(children: [
-                        Text("I own my data,",
+                        Text("Your data is the cure.",
                             style: GoogleFonts.getFont('Lexend Deca',
                                 color: Color(0xFFF06129),
                                 fontSize: 20,
                                 fontWeight: FontWeight.w700)),
-                        Text("my data is my own",
+                        Text("By sharing data people can help finding the cure and be part of the solution.",
                             style: GoogleFonts.getFont('Lexend Deca',
                                 color: Color(0xFFF06129),
-                                fontSize: 20,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w700))
                       ]),
 

@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:myowndata/components/data_edit_item.dart';
+import 'package:wavedata/components/data_edit_item.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:myowndata/screens/main_screen.dart';
+import 'package:wavedata/screens/main_screen.dart';
 import 'package:http/http.dart' as http;
 
 class QRgeneratedScreen extends StatelessWidget {

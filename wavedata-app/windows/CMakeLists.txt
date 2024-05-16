@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(myowndata LANGUAGES CXX)
+project(wavedata LANGUAGES CXX)
 
-set(BINARY_NAME "myowndata")
+set(BINARY_NAME "wavedata")
 
 cmake_policy(SET CMP0063 NEW)
 

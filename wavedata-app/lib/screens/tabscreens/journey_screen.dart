@@ -10,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:myowndata/screens/auth_screen.dart';
+import 'package:wavedata/screens/auth_screen.dart';
 
 class JourneyScreen extends ConsumerStatefulWidget {
   const JourneyScreen({Key? key}) : super(key: key);
@@ -48,7 +48,7 @@ class _JourneyScreenState extends ConsumerState<JourneyScreen> {
   Future<void> GetOngoingData() async {
     UpdateLoading(true);
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
+        'https://wavedatatrial-api.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
     var correctStatus = false;
     var response = null;
     while (correctStatus == false) {

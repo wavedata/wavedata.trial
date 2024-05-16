@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:myowndata/providers/navbar_provider.dart';
+import 'package:wavedata/providers/navbar_provider.dart';
 
-class MyOwnDataNavbar extends ConsumerStatefulWidget {
+class WaveDataNavbar extends ConsumerStatefulWidget {
   final void Function(int)? OnTap;
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _MyOwnDataNavbarState();
-      MyOwnDataNavbar(this.OnTap);
+      _WaveDataNavbarState();
+      WaveDataNavbar(this.OnTap);
 }
 
-class _MyOwnDataNavbarState extends ConsumerState<MyOwnDataNavbar> {
+class _WaveDataNavbarState extends ConsumerState<WaveDataNavbar> {
   @override
   Widget build(BuildContext context) {
     var viewmodel = ref.watch(navbarProvider);

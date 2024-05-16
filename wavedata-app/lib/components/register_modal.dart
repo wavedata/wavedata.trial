@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:myowndata/components/data_edit_item.dart';
+import 'package:wavedata/components/data_edit_item.dart';
 
 class RegisterModal extends StatefulWidget {
   @override
@@ -26,11 +26,11 @@ class RegisterApp extends State<RegisterModal> {
   };
 
   Future<void> RegisterAccount() async {
-    var url = Uri.parse('https://myowndata-tron-s5-api.netlify.app/api/GET/checkEmail?email=${Uri.encodeComponent(emailTXT.text)}');
+    var url = Uri.parse('https://wavedatatrial-api.netlify.app/api/GET/checkEmail?email=${Uri.encodeComponent(emailTXT.text)}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
     if (responseData['value'] == "False") {
-      var urlReg = Uri.parse('https://myowndata-tron-s5-api.netlify.app/api/POST/Register');
+      var urlReg = Uri.parse('https://wavedatatrial-api.netlify.app/api/POST/Register');
        await http.post(urlReg,  headers: POSTheader, body: {'fullname':fullnameTXT.text,'email':emailTXT.text, 'password':passwordTXT.text});
     
       Navigator.pop(context);

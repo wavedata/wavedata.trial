@@ -6,12 +6,12 @@ import 'package:jiffy/jiffy.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-import 'package:myowndata/model/trial.dart';
-import 'package:myowndata/model/trial_action.dart';
-import 'package:myowndata/providers/navbar_provider.dart';
-import 'package:myowndata/screens/auth_screen.dart';
-import 'package:myowndata/screens/feeling_screen.dart';
-import 'package:myowndata/screens/informedconsent_screen.dart';
+import 'package:wavedata/model/trial.dart';
+import 'package:wavedata/model/trial_action.dart';
+import 'package:wavedata/providers/navbar_provider.dart';
+import 'package:wavedata/screens/auth_screen.dart';
+import 'package:wavedata/screens/feeling_screen.dart';
+import 'package:wavedata/screens/informedconsent_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -59,7 +59,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Future<void> GetAvialbleData() async {
     avilableTrials = [];
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/Trial/GetAvailableTrial?userid=${userid}');
+        'https://wavedatatrial-api.netlify.app/api/GET/Trial/GetAvailableTrial?userid=${userid}');
     var correctStatus = false;
     var response = null;
     while (correctStatus == false) {
@@ -98,7 +98,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     };
     dummyActions = [];
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
+        'https://wavedatatrial-api.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
     var correctStatus = false;
     var response = null;
     while (correctStatus == false) {
@@ -199,7 +199,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   Future<void> GetUserData(int userid) async {
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/getUserDetails?userid=${userid}');
+        'https://wavedatatrial-api.netlify.app/api/GET/getUserDetails?userid=${userid}');
     var correctStatus = false;
     var response = null;
     while (correctStatus == false) {
@@ -347,7 +347,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       String JsonMadePermission = given_permission.toString();
 
       var url = Uri.parse(
-          'https://myowndata-tron-s5-api.netlify.app/api/POST/Trial/CreateOngoingTrail');
+          'https://wavedatatrial-api.netlify.app/api/POST/Trial/CreateOngoingTrail');
       await http.post(url, headers: POSTheader, body: {
         'trialid': trialid.toString(),
         'userid': userid.toString(),
@@ -362,7 +362,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       int userid = int.parse(prefs.getString("userid").toString());
 
       var url = Uri.parse(
-          'https://myowndata-tron-s5-api.netlify.app/api/POST/Trial/Survey/WithdrawAmount');
+          'https://wavedatatrial-api.netlify.app/api/POST/Trial/Survey/WithdrawAmount');
       await http.post(url,
           headers: POSTheader,
           body: {'userid': userid.toString(), 'amount': Amount});

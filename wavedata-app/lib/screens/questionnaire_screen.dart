@@ -6,12 +6,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:myowndata/model/question.dart';
-import 'package:myowndata/providers/feeling_provider.dart';
-import 'package:myowndata/providers/questionnaire_provider.dart';
-import 'package:myowndata/screens/connect_data.dart';
-import 'package:myowndata/screens/main_screen.dart';
-import 'package:myowndata/screens/journal_screen.dart';
+import 'package:wavedata/model/question.dart';
+import 'package:wavedata/providers/feeling_provider.dart';
+import 'package:wavedata/providers/questionnaire_provider.dart';
+import 'package:wavedata/screens/connect_data.dart';
+import 'package:wavedata/screens/main_screen.dart';
+import 'package:wavedata/screens/journal_screen.dart';
 
 class QuestionnaireScreen extends ConsumerStatefulWidget {
   const QuestionnaireScreen({Key? key}) : super(key: key);
@@ -38,7 +38,7 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
     allCategory = [];
 
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/Trial/Survey/GetSurveyDetails?surveyid=${surveyid}');
+        'https://wavedatatrial-api.netlify.app/api/GET/Trial/Survey/GetSurveyDetails?surveyid=${surveyid}');
     final response = await http.get(url);
     var responseData = json.decode(response.body);
 
@@ -120,7 +120,7 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
       });
     }
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.onrender.com/api/POST/Trial/Survey/CreateSurveyAnswers');
+        'https://wavedata-tron-s5-api.onrender.com/api/POST/Trial/Survey/CreateSurveyAnswers');
     await http.post(url, headers: POSTheader, body: json.encode(data));
     setState(() {
       isloading = false;
@@ -137,7 +137,7 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
     int trialid = int.parse(allSections[0]['trialid']);
 
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.onrender.com/api/POST/Trial/Survey/CreateCompletedSurvey');
+        'https://wavedata-tron-s5-api.onrender.com/api/POST/Trial/Survey/CreateCompletedSurvey');
     await http.post(url, headers: POSTheader, body: {
       'surveyid': surveyid.toString(),
       'userid': userid.toString(),

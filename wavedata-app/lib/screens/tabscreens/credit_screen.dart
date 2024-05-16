@@ -4,14 +4,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:myowndata/components/data_edit_item.dart';
+import 'package:wavedata/components/data_edit_item.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-import 'package:myowndata/model/offer.dart';
-import 'package:myowndata/screens/auth_screen.dart';
+import 'package:wavedata/model/offer.dart';
+import 'package:wavedata/screens/auth_screen.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class CreditScreen extends ConsumerStatefulWidget {
@@ -55,7 +55,7 @@ class _CreditScreenState extends ConsumerState<CreditScreen> {
     };
 
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
+        'https://wavedatatrial-api.netlify.app/api/GET/Trial/GetOngoingTrial?userid=${userid}');
     var correctStatus = false;
     var response = null;
     while (correctStatus == false) {
@@ -122,7 +122,7 @@ class _CreditScreenState extends ConsumerState<CreditScreen> {
 
   Future<void> GetUserData(int userid) async {
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/getUserDetails?userid=${userid}');
+        'https://wavedatatrial-api.netlify.app/api/GET/getUserDetails?userid=${userid}');
     var correctStatus = false;
     var response = null;
     while (correctStatus == false) {
@@ -220,7 +220,7 @@ class _CreditScreenState extends ConsumerState<CreditScreen> {
       int userid = int.parse(prefs.getString("userid").toString());
 
       var url = Uri.parse(
-          'https://myowndata-tron-s5-api.netlify.app/api/POST/Trial/Survey/WithdrawAmount');
+          'https://wavedatatrial-api.netlify.app/api/POST/Trial/Survey/WithdrawAmount');
       await http.post(url,
           headers: POSTheader,
           body: {'userid': userid.toString(), 'amount': Amount});

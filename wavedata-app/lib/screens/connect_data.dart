@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:myowndata/components/data_edit_item.dart';
-import 'package:myowndata/screens/main_screen.dart';
+import 'package:wavedata/components/data_edit_item.dart';
+import 'package:wavedata/screens/main_screen.dart';
 import 'package:http/http.dart' as http;
 
 class ConnectDataScreen extends StatefulWidget {
@@ -38,7 +38,7 @@ class ConnectDataApp extends State<ConnectDataScreen> {
     var userid = prefs.getString("userid");
     try {
         var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/POST/UpadateFhir');
+        'https://wavedatatrial-api.netlify.app/api/POST/UpadateFhir');
     final response = await http.post(url, headers: POSTheader, body: {
       'userid': userid,
       'givenname': GivenNameTXT.text,
@@ -68,7 +68,7 @@ class ConnectDataApp extends State<ConnectDataScreen> {
   Future<void> GetData() async {
     final prefs = await SharedPreferences.getInstance();
     var userid = prefs.getString("userid");
-   var url = Uri.parse('https://myowndata-tron-s5-api.netlify.app/api/GET/getFhir?userid=${int.parse(userid.toString())}');
+   var url = Uri.parse('https://wavedatatrial-api.netlify.app/api/GET/getFhir?userid=${int.parse(userid.toString())}');
    
     final response = await http.get(url);
     var responseData = json.decode(response.body);

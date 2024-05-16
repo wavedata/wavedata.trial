@@ -1,4 +1,4 @@
-package com.example.myowndata
+package com.example.wavedata
 
 import io.flutter.embedding.android.FlutterActivity
 

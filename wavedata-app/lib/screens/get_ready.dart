@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myowndata/screens/connect_data.dart';
+import 'package:wavedata/screens/connect_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GetReadyScreen extends StatelessWidget {

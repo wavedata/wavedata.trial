@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:myowndata/providers/feeling_provider.dart';
-import 'package:myowndata/screens/connect_data.dart';
-import 'package:myowndata/screens/questionnaire_screen.dart';
+import 'package:wavedata/providers/feeling_provider.dart';
+import 'package:wavedata/screens/connect_data.dart';
+import 'package:wavedata/screens/questionnaire_screen.dart';
 
 class FeelingScreen extends ConsumerWidget {
   const FeelingScreen({Key? key}) : super(key: key);

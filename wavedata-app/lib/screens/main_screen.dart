@@ -3,13 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:myowndata/components/bottom_navbar.dart';
-import 'package:myowndata/providers/navbar_provider.dart';
-import 'package:myowndata/screens/auth_screen.dart';
-import 'package:myowndata/screens/tabscreens/home_screen.dart';
-import 'package:myowndata/screens/tabscreens/journey_screen.dart';
-import 'package:myowndata/screens/tabscreens/mydata_screen.dart';
-import 'package:myowndata/screens/tabscreens/credit_screen.dart';
+import 'package:wavedata/components/bottom_navbar.dart';
+import 'package:wavedata/providers/navbar_provider.dart';
+import 'package:wavedata/screens/auth_screen.dart';
+import 'package:wavedata/screens/tabscreens/home_screen.dart';
+import 'package:wavedata/screens/tabscreens/journey_screen.dart';
+import 'package:wavedata/screens/tabscreens/mydata_screen.dart';
+import 'package:wavedata/screens/tabscreens/credit_screen.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -63,7 +63,7 @@ class _MainScreenState extends ConsumerState<MainScreen>
     }
 
     return Scaffold(
-      bottomNavigationBar: MyOwnDataNavbar((int newIndex) {
+      bottomNavigationBar: WaveDataNavbar((int newIndex) {
         controller.index = newIndex;
         navbarViewmodel.updateIndex(newIndex);
       }),

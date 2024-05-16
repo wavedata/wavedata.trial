@@ -7,9 +7,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-import 'package:myowndata/screens/qr_code_generated.dart';
-import 'package:myowndata/screens/wearables_screen.dart';
-import 'package:myowndata/screens/auth_screen.dart';
+import 'package:wavedata/screens/qr_code_generated.dart';
+import 'package:wavedata/screens/wearables_screen.dart';
+import 'package:wavedata/screens/auth_screen.dart';
 
 class MyDataScreen extends ConsumerStatefulWidget {
   const MyDataScreen({Key? key}) : super(key: key);
@@ -75,7 +75,7 @@ class _MyDataScreenState extends ConsumerState<MyDataScreen> {
 
   Future<void> GetFHIRData(int userid) async {
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/getUserDetails?userid=${userid}');
+        'https://wavedatatrial-api.netlify.app/api/GET/getUserDetails?userid=${userid}');
     var correctStatus = false;
     var response = null;
     while (correctStatus == false) {
@@ -97,7 +97,7 @@ class _MyDataScreenState extends ConsumerState<MyDataScreen> {
     });
 
     var urlFH = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/getFhir?userid=${int.parse(userid.toString())}');
+        'https://wavedatatrial-api.netlify.app/api/GET/getFhir?userid=${int.parse(userid.toString())}');
     final responseFH = await http.get(urlFH);
     var responseDataFH = json.decode(responseFH.body);
 
@@ -145,7 +145,7 @@ class _MyDataScreenState extends ConsumerState<MyDataScreen> {
     final prefs = await SharedPreferences.getInstance();
     int userid = int.parse(prefs.getString("userid").toString());
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/POST/UpadateImage');
+        'https://wavedatatrial-api.netlify.app/api/POST/UpadateImage');
     await http.post(url, headers: POSTheader, body: {
       'userid': userid.toString(),
       'image': _textFieldController.text

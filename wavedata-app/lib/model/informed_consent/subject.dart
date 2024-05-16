@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:myowndata/model/informed_consent/agesAns.dart';
+import 'package:wavedata/model/informed_consent/agesAns.dart';
 
 class Subject {
   int subject_id;

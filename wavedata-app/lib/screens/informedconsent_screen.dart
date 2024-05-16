@@ -7,18 +7,18 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:myowndata/model/informed_consent/ages.dart';
+import 'package:wavedata/model/informed_consent/ages.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-import 'package:myowndata/model/informed_consent/subject.dart';
-import 'package:myowndata/components/bottom_navbar.dart';
-import 'package:myowndata/providers/navbar_provider.dart';
-import 'package:myowndata/providers/questionnaire_provider.dart';
-import 'package:myowndata/screens/journal_screen.dart';
-import 'package:myowndata/screens/tabscreens/home_screen.dart';
-import 'package:myowndata/screens/tabscreens/journey_screen.dart';
-import 'package:myowndata/screens/tabscreens/mydata_screen.dart';
-import 'package:myowndata/screens/tabscreens/credit_screen.dart';
+import 'package:wavedata/model/informed_consent/subject.dart';
+import 'package:wavedata/components/bottom_navbar.dart';
+import 'package:wavedata/providers/navbar_provider.dart';
+import 'package:wavedata/providers/questionnaire_provider.dart';
+import 'package:wavedata/screens/journal_screen.dart';
+import 'package:wavedata/screens/tabscreens/home_screen.dart';
+import 'package:wavedata/screens/tabscreens/journey_screen.dart';
+import 'package:wavedata/screens/tabscreens/mydata_screen.dart';
+import 'package:wavedata/screens/tabscreens/credit_screen.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class InformedConsentScreen extends ConsumerStatefulWidget {
@@ -54,7 +54,7 @@ class _InformedConsentScreenState extends ConsumerState<InformedConsentScreen> {
     subjects = [];
 
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/GET/Trial/GetInformedConsent?trial_id=${trialid}&user_id=${userid}');
+        'https://wavedatatrial-api.netlify.app/api/GET/Trial/GetInformedConsent?trial_id=${trialid}&user_id=${userid}');
     final response = await http.get(url);
     var responseData = jsonDecode(response.body);
     var value = jsonDecode(responseData['value']);
@@ -88,7 +88,7 @@ class _InformedConsentScreenState extends ConsumerState<InformedConsentScreen> {
     int trialid = int.parse(trial_id);
 
     var url = Uri.parse(
-        'https://myowndata-tron-s5-api.netlify.app/api/POST/Trial/CreateCompletedInformedConsent');
+        'https://wavedatatrial-api.netlify.app/api/POST/Trial/CreateCompletedInformedConsent');
     await http.post(url, headers: POSTheader, body: {
       'userid': userid.toString(),
       'date': DateTime.now().toIso8601String(),
@@ -165,7 +165,7 @@ class _InformedConsentScreenState extends ConsumerState<InformedConsentScreen> {
                     ],
                   )))
           : null,
-      bottomNavigationBar: MyOwnDataNavbar((int newIndex) {
+      bottomNavigationBar: WaveDataNavbar((int newIndex) {
         navbarViewmodel.updateIndex(newIndex);
       }),
       backgroundColor: Color.fromARGB(255, 253, 249, 242),
