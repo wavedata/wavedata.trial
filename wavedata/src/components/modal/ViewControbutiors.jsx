@@ -152,7 +152,7 @@ export default function ViewControbutiors({show,setShow, onHide, id}) {
 		var endDate = getFormattedDate(new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1));
 		let response = await (
 			await fetch(
-				`https://myowndata-tron-s5-api.netlify.app/api/GET/Wearable/customAPI?userid=${userid}&url=https://api.und-gesund.de/v5/dailyDynamicValues&token=${userToken}&body_startDay=${startDate}&body_endDay=${endDate}&body_valueTypes=2001`
+				`https://wavedata-tron-s5-api.netlify.app/api/GET/Wearable/customAPI?userid=${userid}&url=https://api.und-gesund.de/v5/dailyDynamicValues&token=${userToken}&body_startDay=${startDate}&body_endDay=${endDate}&body_valueTypes=2001`
 			)
 		).json();
 		let parsed = JSON.parse(response.value);
@@ -189,7 +189,7 @@ export default function ViewControbutiors({show,setShow, onHide, id}) {
 		var endDate = getFormattedDate(new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1));
 		let response = await (
 			await fetch(
-				`https://myowndata-tron-s5-api.netlify.app/api/GET/Wearable/customAPI?userid=${userid}&url=https://api.und-gesund.de/v5/dailyDynamicValues&token=${userToken}&body_startDay=${startDate}&body_endDay=${endDate}&body_valueTypes=${valueTypes}`
+				`https://wavedata-tron-s5-api.netlify.app/api/GET/Wearable/customAPI?userid=${userid}&url=https://api.und-gesund.de/v5/dailyDynamicValues&token=${userToken}&body_startDay=${startDate}&body_endDay=${endDate}&body_valueTypes=${valueTypes}`
 			)
 		).json();
 		let parsed = JSON.parse(response.value);

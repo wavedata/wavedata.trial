@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useContract from '../contract/useContract.ts'
-import logoicon from "../assets/my-own-data-logo.svg";
+import logoicon from "../assets/wave-data-logo.svg";
 import "./Login.css";
 function Login() {
 	let navigate = useNavigate();
@@ -114,7 +114,8 @@ function Login() {
 			<div className="bg-white flex-1 flex flex-col justify-center items-center">
 				<div className="pl-20 pr-20 relative container-panel">
 					<img src={logoicon} className="w-3/4 mx-auto" style={{height: '18rem'}} alt="WaveData Logo" />
-					<h1 className="font-semibold mb-10 mt-1 text-4xl text-center text-orange-500">I own my data, my data is my own</h1>
+					<h1 className="text-4xl font-semibold mt-10 text-center">Your data is the cure.</h1>
+					<p className="mt-3">By sharing data people can help finding the cure and be part of the solution.</p>
 					<div id="notification-success" style={{ display: "none" }} className="mt-4 text-center bg-gray-200 relative text-gray-500 py-3 px-3 rounded-lg">
 						Success!
 					</div>

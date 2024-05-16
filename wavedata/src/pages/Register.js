@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import logoicon from '../assets/my-own-data-logo.svg'
+import logoicon from '../assets/wave-data-logo.svg'
 import { useState, useEffect } from 'react'
 import useContract from '../contract/useContract.ts'
 import { useNavigate } from "react-router-dom";
@@ -113,11 +113,11 @@ function Register() {
     return (
         <div className="min-h-screen grid-cols-2 flex">
             <div className="bg-blue-200 flex-1 img-panel">
-                <img src={require('../assets/login-picture.png')} className="h-full  w-full" alt="My Own Data Logo" />
+                <img src={require('../assets/login-picture.png')} className="h-full  w-full" alt="WaveData Logo" />
             </div>
             <div className="bg-white flex-1 flex flex-col justify-center items-center">
                 <div className="pl-20 pr-20 container-panel">
-                    <img src={logoicon} className="w-3/4 mx-auto" style={{height: '18rem'}}  alt="My Own Data Logo" />
+                    <img src={logoicon} className="w-3/4 mx-auto" style={{height: '18rem'}}  alt="WaveData Logo" />
 					 <h1 className="text-4xl font-semibold mt-10 text-center">Register your account</h1>
                     <div id='notification-success' style={{ display: 'none' }} className="mt-4 text-center bg-gray-200 relative text-gray-500 py-3 px-3 rounded-lg">
                         Success!
